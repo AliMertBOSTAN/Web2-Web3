@@ -1,0 +1,161 @@
+[
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "ada",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "parsel",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "verim",
+					"type": "uint256"
+				},
+				{
+					"internalType": "string",
+					"name": "kisi",
+					"type": "string"
+				},
+				{
+					"internalType": "uint256",
+					"name": "ekim",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "hektar",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "payable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "kalan",
+					"type": "uint256"
+				}
+			],
+			"name": "Sell",
+			"type": "event"
+		},
+		{
+			"inputs": [],
+			"name": "kalan",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "queryAda",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "queryEkim",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "queryHektar",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "queryParsel",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "queryVerim",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "satis",
+					"type": "uint256"
+				}
+			],
+			"name": "satis",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"inputs": [],
+			"name": "urun",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	]
