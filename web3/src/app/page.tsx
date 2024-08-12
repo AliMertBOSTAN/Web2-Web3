@@ -1,12 +1,13 @@
 "use client";
-import Web3 from "web3";
+import { ethers } from "ethers";
 import React, { useState, useEffect } from 'react';
 import abi from "../../assets/abi.json";
 
-const web3 = new Web3('https://sepolia.infura.io/v3/af3c7cf672f142b1ba579cbae221cd1c'); // Infura gibi bir çok provider'dan bir tanesini kullanabilirsiniz
+const provider = new ethers.JsonRpcProvider('https://sepolia.infura.io/v3/af3c7cf672f142b1ba579cbae221cd1c'); // Infura gibi bir çok provider'dan bir tanesini kullanabilirsiniz
+
 const contractAddress = '0xcbD7cd71A91F10729599a3d4F4b5c12f0821f9Fc'; // Sözleşmemizin Blockchain adresi
 
-const contract = new web3.eth.Contract(abi, contractAddress);
+const contract = new ethers.Contract(contractAddress, abi, provider);
 
 export default function Home() {
   // State tanımları
@@ -24,26 +25,31 @@ export default function Home() {
       setError(null);
 
       console.log("Veri çekme başlıyor...");
-      
-      const adaValue = await contract.methods.queryAda().call();
-      console.log("ADA Verisi:", adaValue);
-      const ekimValue = await contract.methods.queryEkim().call();
-      console.log("EKIM Verisi:", ekimValue);
-      const hektarValue = await contract.methods.queryHektar().call();
-      console.log("HEKTAR Verisi:", hektarValue);
-      const parselValue = await contract.methods.queryParsel().call();
-      console.log("PARSEL Verisi:", parselValue);
-      const verimValue = await contract.methods.queryVerim().call();
-      console.log("VERIM Verisi:", verimValue);
-      const kalanValue = await contract.methods.kalan().call();
-      console.log("KALAN Verisi:", kalanValue);
 
-      setAda(adaValue);
-      setEkim(ekimValue);
-      setHektar(hektarValue);
-      setParsel(parselValue);
-      setVerim(verimValue);
-      setKalan(kalanValue);
+      try {
+        const adaValue = await contract.queryAda();
+        console.log("ADA Verisi:", adaValue);
+        const ekimValue = await contract.queryEkim();
+        console.log("EKIM Verisi:", ekimValue);
+        const hektarValue = await contract.queryHektar();
+        console.log("HEKTAR Verisi:", hektarValue);
+        const parselValue = await contract.queryParsel();
+        console.log("PARSEL Verisi:", parselValue);
+        const verimValue = await contract.queryVerim();
+        console.log("VERIM Verisi:", verimValue);
+        const kalanValue = await contract.kalan();
+        console.log("KALAN Verisi:", kalanValue);
+
+        setAda(adaValue);
+        setEkim(ekimValue);
+        setHektar(hektarValue);
+        setParsel(parselValue);
+        setVerim(verimValue);
+        setKalan(kalanValue);
+      } catch (error) {
+        console.error("Veri çekme hatası:", error);
+        setError("Veri çekme hatası: " + error.message);
+      }
     };
 
     fetchData();
