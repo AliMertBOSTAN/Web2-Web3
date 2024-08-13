@@ -27,6 +27,7 @@ export default function Home() {
       
       const adaValue = await contract.methods.queryAda().call();
       console.log("ADA Verisi:", adaValue);
+      console.log("ADA type:", typeof adaValue);
       const ekimValue = await contract.methods.queryEkim().call();
       console.log("EKIM Verisi:", ekimValue);
       const hektarValue = await contract.methods.queryHektar().call();
@@ -38,12 +39,12 @@ export default function Home() {
       const kalanValue = await contract.methods.kalan().call();
       console.log("KALAN Verisi:", kalanValue);
 
-      setAda(adaValue);
-      setEkim(ekimValue);
-      setHektar(hektarValue);
-      setParsel(parselValue);
-      setVerim(verimValue);
-      setKalan(kalanValue);
+      if(adaValue) setAda(adaValue.toString());
+      if(ekimValue) setEkim(ekimValue.toString());
+      if(hektarValue) setHektar(hektarValue.toString());
+      if(parselValue) setParsel(parselValue.toString());
+      if(verimValue) setVerim(verimValue.toString());
+      if(kalanValue) setKalan(kalanValue.toString());
     };
 
     fetchData();
@@ -56,7 +57,7 @@ export default function Home() {
   return (
     <div>
       <h1>Sözleşme Verileri</h1>
-      <p><strong>Ada:</strong> {ada }</p>
+      <p><strong>Ada:</strong> {ada}</p>
       <p><strong>Ekim:</strong> {ekim }</p>
       <p><strong>Hektar:</strong> {hektar }</p>
       <p><strong>Parsel:</strong> {parsel }</p>
